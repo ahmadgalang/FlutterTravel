@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'ui/pages/splahscreen.dart';
+import 'package:flutter_travel/ui/pages/get_started_page.dart';
+import 'ui/pages/splah_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: GetStartedPage(),
     );
   }
 }
