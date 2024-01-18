@@ -22,9 +22,11 @@ class SplashScreen extends StatelessWidget {
                 ),
               ),
             ),
-            Text('AIRPLANE',
-                style: whiteTextStyle.copyWith(
-                    fontSize: 32, fontWeight: extraBold, letterSpacing: 8.0))
+            Text(
+              'AIRPLANE',
+              style: whiteTextStyle.copyWith(
+                  fontSize: 32, fontWeight: extraBold, letterSpacing: 8.0),
+            ),
           ],
         ),
       ),
