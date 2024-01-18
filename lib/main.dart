@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_travel/ui/pages/get_started_page.dart';
-import 'ui/pages/splah_screen.dart';
+import 'package:flutter_travel/ui/pages/splash_screen_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,9 +11,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: GetStartedPage(),
+      home: const SplashScreenPage(),
+      initialRoute: '/const SplashScreenPage()',
+      routes: {
+        '/get-started-page': (context) => const GetStartedPage(),
+      },
     );
   }
 }
