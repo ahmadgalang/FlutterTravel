@@ -13,7 +13,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
   @override
   void initState() {
     Timer(const Duration(seconds: 3), () {
-      Navigator.pushNamed(context, '/get-started-page');
+      Navigator.pushNamed(context, '/get-started');
     });
     super.initState();
   }
