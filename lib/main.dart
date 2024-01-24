@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_travel/ui/pages/bonus_page.dart';
 import 'package:flutter_travel/ui/pages/get_started_page.dart';
+import 'package:flutter_travel/ui/pages/sign_up_page.dart';
 import 'package:flutter_travel/ui/pages/splash_screen_page.dart';
 
 void main() {
@@ -13,10 +15,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const SplashScreenPage(),
-      initialRoute: '/const SplashScreenPage()',
+      initialRoute: '/',
       routes: {
-        '/get-started-page': (context) => const GetStartedPage(),
+        '/': (context) => const SplashScreenPage(),
+        '/get-started': (context) => const GetStartedPage(),
+        '/sign-up': (context) => const SignUpPage(),
+        '/bonus': (context) => const BonusPage()
       },
     );
   }
