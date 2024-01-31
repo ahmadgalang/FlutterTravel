@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_travel/shared/theme.dart';
+import 'package:flutter_travel/ui/widgets/custom_button.dart';
 
 class BonusPage extends StatelessWidget {
   const BonusPage({super.key});
@@ -84,7 +85,7 @@ class BonusPage extends StatelessWidget {
 
     Widget title() {
       return Container(
-        margin: EdgeInsets.only(top: 80),
+        margin: const EdgeInsets.only(top: 80),
         child: Column(
           children: [
             Text(
@@ -92,7 +93,7 @@ class BonusPage extends StatelessWidget {
               style:
                   secondaryTextStyle.copyWith(fontSize: 32, fontWeight: bold),
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             Text(
@@ -100,14 +101,18 @@ class BonusPage extends StatelessWidget {
               textAlign: TextAlign.center,
               style: greyTextStyle.copyWith(
                   fontSize: 15, fontWeight: light, height: 1.7),
-            )
+            ),
+            const SizedBox(height: 20),
           ],
         ),
       );
     }
 
     Widget startButton() {
-      return Container();
+      return CustomButton(title: 'Start Fly Now', width: 220,
+      onPressed: () {
+        Navigator.pushNamed(context, '/main');
+      },);
     }
 
     return Scaffold(
@@ -116,7 +121,7 @@ class BonusPage extends StatelessWidget {
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [bonusCard(), title()],
+            children: [bonusCard(), title(), startButton()],
           ),
         ),
       ),

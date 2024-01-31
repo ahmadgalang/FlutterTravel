@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_travel/shared/theme.dart';
 
+import '../widgets/custom_button.dart';
+
 class SignUpPage extends StatelessWidget {
   const SignUpPage({super.key});
   @override
@@ -45,25 +47,11 @@ class SignUpPage extends StatelessWidget {
       }
 
       Widget getStartedBtn() {
-        return Container(
-          margin: const EdgeInsets.symmetric(vertical: 30),
-          width: double.infinity,
-          height: 55,
-          child: TextButton(
-            style: TextButton.styleFrom(
-              backgroundColor: kPrimaryColor,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(defaultRadius),
-              ),
-            ),
-            onPressed: () {
-              Navigator.pushNamed(context, '/bonus');
-            },
-            child: Text(
-              'Get Started',
-              style: whiteTextStyle.copyWith(fontSize: 18, fontWeight: medium),
-            ),
-          ),
+        return CustomButton(
+          title: 'Get Started',
+          onPressed: () {
+            Navigator.pushNamed(context, '/bonus');
+          },
         );
       }
 
@@ -80,7 +68,9 @@ class SignUpPage extends StatelessWidget {
             field('Email Address', 'Input Your Email Address', false),
             field('Password', 'Input Your Password', true),
             field('Hobby', 'Input Your Hobby', false),
-            getStartedBtn()
+            const SizedBox(height: 30),
+            getStartedBtn(),
+            const SizedBox(height: 20),
           ],
         ),
       );
@@ -88,7 +78,7 @@ class SignUpPage extends StatelessWidget {
 
     Widget tacBtn() {
       return Container(
-        margin: const EdgeInsets.only(top: 5),
+        margin: const EdgeInsets.only(top: 30),
         child: TextButton(
           onPressed: () {},
           child: Text(
