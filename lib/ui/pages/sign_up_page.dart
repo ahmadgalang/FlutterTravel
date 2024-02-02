@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_travel/shared/theme.dart';
-
+import 'package:flutter_travel/ui/widgets/custom_text_form_field.dart';
 import '../widgets/custom_button.dart';
 
 class SignUpPage extends StatelessWidget {
@@ -19,31 +19,24 @@ class SignUpPage extends StatelessWidget {
     }
 
     Widget inputSection() {
-      Widget field(String labelText, String hintText, bool obsecure) {
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 20),
-            Text(labelText, style: secondaryTextStyle),
-            const SizedBox(height: 6),
-            TextFormField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(defaultRadius),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: kPrimaryColor),
-                  borderRadius: BorderRadius.circular(defaultRadius),
-                ),
-                hintText: hintText,
-                hintStyle:
-                    const TextStyle(color: Color.fromARGB(255, 205, 205, 205)),
-              ),
-              cursorColor: kSecondaryColor,
-              obscureText: obsecure,
-            )
-          ],
-        );
+      Widget fullName() {
+        return CustomTextFormField(
+            labelText: 'Full Name', hintText: 'Input your name');
+      }
+
+      Widget address() {
+        return CustomTextFormField(
+            labelText: 'Address', hintText: 'Input your Address');
+      }
+
+       Widget hobby() {
+        return CustomTextFormField(
+            labelText: 'Hobby', hintText: 'Input your Hobby');
+      }
+
+       Widget password() {
+        return CustomTextFormField(
+            labelText: 'Password', hintText: 'Input your Password', obscuredText: true, isIcon: true,);
       }
 
       Widget getStartedBtn() {
@@ -64,11 +57,11 @@ class SignUpPage extends StatelessWidget {
         ),
         child: Column(
           children: [
-            field('Full Name', 'Input Your Full Name', false),
-            field('Email Address', 'Input Your Email Address', false),
-            field('Password', 'Input Your Password', true),
-            field('Hobby', 'Input Your Hobby', false),
-            const SizedBox(height: 30),
+            fullName(),
+            address(),
+            hobby(),
+            password(),
+            const SizedBox(height: 20),
             getStartedBtn(),
             const SizedBox(height: 20),
           ],

@@ -40,9 +40,9 @@ class GetStartedPage extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 Container(
-                  margin: EdgeInsets.only(bottom: 80, top: 50),
+                  margin: const EdgeInsets.only(bottom: 120, top: 60),
                   child: CustomButton(
-                    title: 'Get Started',
+                    title: 'Fly Now!',
                     onPressed: () {
                       Navigator.pushNamed(context, '/sign-up');
                     },

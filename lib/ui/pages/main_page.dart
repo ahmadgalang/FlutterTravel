@@ -7,6 +7,26 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    Widget profile(){
+      return Row(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+            const Text('Ahmad \nGalang Afianto'),
+            Container(
+              width: 100,
+              height: 100,
+              decoration: const BoxDecoration(
+                image: DecorationImage(image: AssetImage('assets/images/profile.png'))
+              ))
+            ],
+          )
+        ],
+      );
+    }
+
     Widget customButtonNavigator() {
       return Align(
         alignment: Alignment.bottomCenter,
@@ -34,8 +54,8 @@ class HomePage extends StatelessWidget {
       body: SafeArea(
         child: Stack(
           children: [
-            const Text('Ahmad \nGalang Afianto'),
-            customButtonNavigator()
+            customButtonNavigator(),
+            profile()
           ],
         ),
       ),

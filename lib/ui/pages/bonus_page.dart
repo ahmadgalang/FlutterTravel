@@ -102,7 +102,7 @@ class BonusPage extends StatelessWidget {
               style: greyTextStyle.copyWith(
                   fontSize: 15, fontWeight: light, height: 1.7),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 80),
           ],
         ),
       );
