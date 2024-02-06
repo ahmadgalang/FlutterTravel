@@ -38,7 +38,7 @@ class BonusPage extends StatelessWidget {
                     SizedBox(
                       width: 150,
                       child: Text(
-                        'Ahmad Galang Afianto',
+                        'Ahmad Galang AfiantoAfiantoAfianto',
                         style: whiteTextStyle.copyWith(
                             fontWeight: bold, fontSize: 20),
                         overflow: TextOverflow.ellipsis,
@@ -66,15 +66,17 @@ class BonusPage extends StatelessWidget {
             ),
             Row(
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Balance',
-                        style: whiteTextStyle.copyWith(fontWeight: regular)),
-                    Text('IDR. 280.000.000',
-                        style: whiteTextStyle.copyWith(
-                            fontWeight: bold, fontSize: 26)),
-                  ],
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('Balance',
+                          style: whiteTextStyle.copyWith(fontWeight: regular)),
+                      Text('IDR. 280.000.000',
+                          style: whiteTextStyle.copyWith(
+                              fontWeight: bold, fontSize: 26)),
+                    ],
+                  ),
                 )
               ],
             ),

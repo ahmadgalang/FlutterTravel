@@ -1,37 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_travel/shared/theme.dart';
+import 'package:flutter_travel/ui/pages/home_page.dart';
 import 'package:flutter_travel/ui/widgets/custom_button_navigation.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class MainPage extends StatelessWidget {
+  const MainPage({super.key});
 
   @override
   Widget build(BuildContext context) {
 
-    Widget profile(){
-      return Row(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-            const Text('Ahmad \nGalang Afianto'),
-            Container(
-              width: 100,
-              height: 100,
-              decoration: const BoxDecoration(
-                image: DecorationImage(image: AssetImage('assets/images/profile.png'))
-              ))
-            ],
-          )
-        ],
-      );
+    Widget buildContent(){
+      return const HomePage();
     }
 
     Widget customButtonNavigator() {
       return Align(
         alignment: Alignment.bottomCenter,
         child: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 24, vertical: 30),
+          margin: EdgeInsets.only(left: defaultMargin, right: defaultMargin, bottom: 30),
           width: double.infinity,
           height: 60,
           decoration: BoxDecoration(
@@ -52,10 +38,10 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: kBackgroundColor,
       body: SafeArea(
-        child: Stack(
+        child: Column(
           children: [
+            Expanded(child: buildContent()),
             customButtonNavigator(),
-            profile()
           ],
         ),
       ),
