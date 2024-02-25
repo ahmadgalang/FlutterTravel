@@ -84,7 +84,7 @@ class BonusPage extends StatelessWidget {
 
     Widget title() {
       return Container(
-        margin: EdgeInsets.only(top: 80),
+        margin: const EdgeInsets.only(top: 80),
         child: Column(
           children: [
             Text(
@@ -92,7 +92,7 @@ class BonusPage extends StatelessWidget {
               style:
                   secondaryTextStyle.copyWith(fontSize: 32, fontWeight: bold),
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             Text(
@@ -107,7 +107,24 @@ class BonusPage extends StatelessWidget {
     }
 
     Widget startButton() {
-      return Container();
+      return Container(
+        margin: const EdgeInsets.only(top: 50),
+        height: 55,
+        width: 220,
+        child: TextButton(
+          style: TextButton.styleFrom(
+            backgroundColor: kPrimaryColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(defaultRadius),
+            ),
+          ),
+          onPressed: () {
+            Navigator.pushNamed(context, '/');
+          },
+          child: Text('Start Fly Now',
+              style: whiteTextStyle.copyWith(fontSize: 18, fontWeight: medium)),
+        ),
+      );
     }
 
     return Scaffold(
@@ -116,7 +133,7 @@ class BonusPage extends StatelessWidget {
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [bonusCard(), title()],
+            children: [bonusCard(), title(), startButton()],
           ),
         ),
       ),
