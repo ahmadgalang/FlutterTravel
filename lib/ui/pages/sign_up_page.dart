@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_travel/shared/theme.dart';
+import 'package:flutter_travel/ui/widgets/custom_text_form_field.dart';
+import '../widgets/custom_button.dart';
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({super.key});
@@ -17,53 +19,32 @@ class SignUpPage extends StatelessWidget {
     }
 
     Widget inputSection() {
-      Widget field(String labelText, String hintText, bool obsecure) {
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 20),
-            Text(labelText, style: secondaryTextStyle),
-            const SizedBox(height: 6),
-            TextFormField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(defaultRadius),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: kPrimaryColor),
-                  borderRadius: BorderRadius.circular(defaultRadius),
-                ),
-                hintText: hintText,
-                hintStyle:
-                    const TextStyle(color: Color.fromARGB(255, 205, 205, 205)),
-              ),
-              cursorColor: kSecondaryColor,
-              obscureText: obsecure,
-            )
-          ],
-        );
+      Widget fullName() {
+        return CustomTextFormField(
+            labelText: 'Full Name', hintText: 'Input your name');
+      }
+
+      Widget address() {
+        return CustomTextFormField(
+            labelText: 'Address', hintText: 'Input your Address');
+      }
+
+       Widget hobby() {
+        return CustomTextFormField(
+            labelText: 'Hobby', hintText: 'Input your Hobby');
+      }
+
+       Widget password() {
+        return CustomTextFormField(
+            labelText: 'Password', hintText: 'Input your Password', obscuredText: true, isIcon: true,);
       }
 
       Widget getStartedBtn() {
-        return Container(
-          margin: const EdgeInsets.symmetric(vertical: 30),
-          width: double.infinity,
-          height: 55,
-          child: TextButton(
-            style: TextButton.styleFrom(
-              backgroundColor: kPrimaryColor,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(defaultRadius),
-              ),
-            ),
-            onPressed: () {
-              Navigator.pushNamed(context, '/bonus');
-            },
-            child: Text(
-              'Get Started',
-              style: whiteTextStyle.copyWith(fontSize: 18, fontWeight: medium),
-            ),
-          ),
+        return CustomButton(
+          title: 'Get Started',
+          onPressed: () {
+            Navigator.pushNamed(context, '/bonus');
+          },
         );
       }
 
@@ -76,11 +57,13 @@ class SignUpPage extends StatelessWidget {
         ),
         child: Column(
           children: [
-            field('Full Name', 'Input Your Full Name', false),
-            field('Email Address', 'Input Your Email Address', false),
-            field('Password', 'Input Your Password', true),
-            field('Hobby', 'Input Your Hobby', false),
-            getStartedBtn()
+            fullName(),
+            address(),
+            hobby(),
+            password(),
+            const SizedBox(height: 20),
+            getStartedBtn(),
+            const SizedBox(height: 20),
           ],
         ),
       );
@@ -88,7 +71,7 @@ class SignUpPage extends StatelessWidget {
 
     Widget tacBtn() {
       return Container(
-        margin: const EdgeInsets.only(top: 5),
+        margin: const EdgeInsets.only(top: 30),
         child: TextButton(
           onPressed: () {},
           child: Text(

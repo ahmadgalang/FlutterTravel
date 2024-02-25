@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_travel/shared/theme.dart';
+import 'package:flutter_travel/ui/widgets/custom_button.dart';
 
 class BonusPage extends StatelessWidget {
   const BonusPage({super.key});
@@ -37,7 +38,7 @@ class BonusPage extends StatelessWidget {
                     SizedBox(
                       width: 150,
                       child: Text(
-                        'Ahmad Galang Afianto',
+                        'Ahmad Galang AfiantoAfiantoAfianto',
                         style: whiteTextStyle.copyWith(
                             fontWeight: bold, fontSize: 20),
                         overflow: TextOverflow.ellipsis,
@@ -65,15 +66,17 @@ class BonusPage extends StatelessWidget {
             ),
             Row(
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Balance',
-                        style: whiteTextStyle.copyWith(fontWeight: regular)),
-                    Text('IDR. 280.000.000',
-                        style: whiteTextStyle.copyWith(
-                            fontWeight: bold, fontSize: 26)),
-                  ],
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('Balance',
+                          style: whiteTextStyle.copyWith(fontWeight: regular)),
+                      Text('IDR. 280.000.000',
+                          style: whiteTextStyle.copyWith(
+                              fontWeight: bold, fontSize: 26)),
+                    ],
+                  ),
                 )
               ],
             ),
@@ -100,13 +103,15 @@ class BonusPage extends StatelessWidget {
               textAlign: TextAlign.center,
               style: greyTextStyle.copyWith(
                   fontSize: 15, fontWeight: light, height: 1.7),
-            )
+            ),
+            const SizedBox(height: 80),
           ],
         ),
       );
     }
 
     Widget startButton() {
+<<<<<<< HEAD
       return Container(
         margin: const EdgeInsets.only(top: 50),
         height: 55,
@@ -125,6 +130,12 @@ class BonusPage extends StatelessWidget {
               style: whiteTextStyle.copyWith(fontSize: 18, fontWeight: medium)),
         ),
       );
+=======
+      return CustomButton(title: 'Start Fly Now', width: 220,
+      onPressed: () {
+        Navigator.pushNamed(context, '/main');
+      },);
+>>>>>>> af1b3ee78cb7a8840670e0ef9f9acd34106dc7f2
     }
 
     return Scaffold(
