@@ -74,7 +74,10 @@ class HomePage extends StatelessWidget {
           ));
     }
 
-    Widget title() {
+    
+
+    Widget listDestination() {
+      Widget title() {
       return Container(
           margin: EdgeInsets.only(left: defaultMargin, top: 5, bottom: 16),
           child: Row(
@@ -93,23 +96,57 @@ class HomePage extends StatelessWidget {
                   onPressed: () {},
                   child: Text(
                     'Lihat Semua',
-                    style: secondaryTextStyle.copyWith(fontWeight: light, fontSize: 12),
+                    style: secondaryTextStyle.copyWith(
+                        fontWeight: light, fontSize: 12),
                   ),
                 ),
               ),
             ],
           ));
     }
-
-    Widget listDestination() {
-      return const Column(
-        children: [CustomCardListDestination(), CustomCardListDestination()],
+      return Container(
+        margin: const EdgeInsets.only(bottom: 100),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(children: [
+            title(),
+            const CustomCardListDestination(
+              imageUrl: 'assets/images/travel_one.png',
+              titleDestination: 'Mandalika',
+              locationDestination: 'Indonesia',
+              rating: 5.0,
+            ),
+            const CustomCardListDestination(
+              imageUrl: 'assets/images/travel_two.png',
+              titleDestination: 'Bali',
+              locationDestination: 'Indonesia',
+              rating: 5.0,
+            ),
+            const CustomCardListDestination(
+              imageUrl: 'assets/images/travel_three.png',
+              titleDestination: 'Lombok',
+              locationDestination: 'Indonesia',
+              rating: 5.0,
+            ),
+            const CustomCardListDestination(
+              imageUrl: 'assets/images/travel_three.png',
+              titleDestination: 'Lombok',
+              locationDestination: 'Indonesia',
+              rating: 5.0,
+            ),
+            const CustomCardListDestination(
+              imageUrl: 'assets/images/travel_three.png',
+              titleDestination: 'Lombok',
+              locationDestination: 'Indonesia',
+              rating: 5.0,
+            )
+          ]),
+        ),
       );
     }
 
     return ListView(
-
-      children: [header(), popularDestionation(), title(), listDestination()],
+      children: [header(), popularDestionation(), listDestination()],
     );
   }
 }
