@@ -111,7 +111,6 @@ class BonusPage extends StatelessWidget {
     }
 
     Widget startButton() {
-<<<<<<< HEAD
       return Container(
         margin: const EdgeInsets.only(top: 50),
         height: 55,
@@ -124,18 +123,12 @@ class BonusPage extends StatelessWidget {
             ),
           ),
           onPressed: () {
-            Navigator.pushNamed(context, '/');
+            Navigator.pushNamed(context, '/main');
           },
           child: Text('Start Fly Now',
               style: whiteTextStyle.copyWith(fontSize: 18, fontWeight: medium)),
         ),
       );
-=======
-      return CustomButton(title: 'Start Fly Now', width: 220,
-      onPressed: () {
-        Navigator.pushNamed(context, '/main');
-      },);
->>>>>>> af1b3ee78cb7a8840670e0ef9f9acd34106dc7f2
     }
 
     return Scaffold(
