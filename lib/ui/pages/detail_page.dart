@@ -1,6 +1,9 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_travel/shared/theme.dart';
+import 'package:flutter_travel/ui/pages/choose_seat_page.dart';
+import 'package:flutter_travel/ui/widgets/custom_button.dart';
+import 'package:flutter_travel/ui/widgets/custom_cheklist_content.dart';
+import 'package:flutter_travel/ui/widgets/custom_photos_content.dart';
 
 class DetailPage extends StatelessWidget {
   const DetailPage({super.key});
@@ -96,8 +99,7 @@ class DetailPage extends StatelessWidget {
               ),
             ),
             Container(
-              height: 446,
-              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
               width: double.infinity,
               margin: EdgeInsets.only(
                   right: defaultMargin,
@@ -107,238 +109,79 @@ class DetailPage extends StatelessWidget {
               decoration: BoxDecoration(
                   color: kwhiteColor,
                   borderRadius: BorderRadius.circular(defaultRadius)),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.vertical,
-                child: Column(
-                  children: [
-                    SizedBox(
-                      width: double.infinity,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'About',
+              child: Column(
+                children: [
+                  SizedBox(
+                    width: double.infinity,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'About',
+                          style: secondaryTextStyle.copyWith(
+                              fontSize: 16, fontWeight: semiBold),
+                        ),
+                        const SizedBox(height: 6),
+                        Text(
+                            'Berada di jalur jalan provinsi yang menghubungkan Denpasar Singaraja serta letaknya yang dekat dengan Kebun Raya Eka Karya menjadikan tempat Bali.',
+                            textAlign: TextAlign.start,
                             style: secondaryTextStyle.copyWith(
-                                fontSize: 16, fontWeight: semiBold),
-                          ),
-                          const SizedBox(height: 6),
-                          Text(
-                              'Berada di jalur jalan provinsi yang menghubungkan Denpasar Singaraja serta letaknya yang dekat dengan Kebun Raya Eka Karya menjadikan tempat Bali.',
-                              textAlign: TextAlign.justify,
-                              style: secondaryTextStyle.copyWith(
-                                  fontSize: 14, fontWeight: regular, height: 2))
-                        ],
-                      ),
+                                fontSize: 14, fontWeight: regular, height: 2))
+                      ],
                     ),
-              
-                    //Image
-                    Container(
-                      width: double.infinity,
-                      margin: const EdgeInsets.only(top: 20),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Photos',
-                            style: secondaryTextStyle.copyWith(
-                                fontSize: 16, fontWeight: semiBold),
-                          ),
-                          const SizedBox(height: 6),
-                          Container(
-                            height: 100,
-                            width: double.infinity,
-                            child: SingleChildScrollView(
-                              scrollDirection: Axis.horizontal,
-                              child: Row(
-                                children: [
-                                  Container(
-                                    width: 70,
-                                    height: 70,
-                                    margin: const EdgeInsets.only(right: 16),
-                                    decoration: const BoxDecoration(
-                                        image: DecorationImage(
-                                            image: AssetImage(
-                                                'assets/images/travel_five.png'),
-                                            fit: BoxFit.cover),
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(20))),
-                                  ),
-                                  Container(
-                                    width: 70,
-                                    height: 70,
-                                    margin: const EdgeInsets.only(right: 16),
-                                    decoration: const BoxDecoration(
-                                        image: DecorationImage(
-                                            image: AssetImage(
-                                                'assets/images/travel_five.png'),
-                                            fit: BoxFit.cover),
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(20))),
-                                  ),
-                                  Container(
-                                    width: 70,
-                                    height: 70,
-                                    margin: const EdgeInsets.only(right: 16),
-                                    decoration: const BoxDecoration(
-                                        image: DecorationImage(
-                                            image: AssetImage(
-                                                'assets/images/travel_five.png'),
-                                            fit: BoxFit.cover),
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(20))),
-                                  ),
-                                  Container(
-                                    width: 70,
-                                    height: 70,
-                                    margin: const EdgeInsets.only(right: 16),
-                                    decoration: const BoxDecoration(
-                                        image: DecorationImage(
-                                            image: AssetImage(
-                                                'assets/images/travel_five.png'),
-                                            fit: BoxFit.cover),
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(20))),
-                                  ),
-                                ],
-                              ),
+                  ),
+            
+                  // NOTE : PHOTOS
+                  Container(
+                    width: double.infinity,
+                    margin: const EdgeInsets.only(top: 20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Photos',
+                          style: secondaryTextStyle.copyWith(
+                              fontSize: 16, fontWeight: semiBold),
+                        ),
+                        const SizedBox(height: 6),
+                        const SizedBox(
+                          height: 100,
+                          width: double.infinity,
+                          child: SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: [
+                                Photos(),
+                                Photos(),
+                                Photos(),
+                                Photos()
+                              ],
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                    Container(
-                      height: 86,
-                      margin: const EdgeInsets.only(top: 20),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Interest',
-                            style: secondaryTextStyle.copyWith(
-                                fontSize: 16, fontWeight: semiBold),
-                          ),
-                          const SizedBox(height: 7),
-                          Row(
-                            children: [
-                              Expanded(
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Container(
-                                          height: 16,
-                                          width: 16,
-                                          decoration: const BoxDecoration(
-                                            image: DecorationImage(
-                                              image: AssetImage(
-                                                  'assets/icons/ic_checklist.png'),
-                                            ),
-                                          ),
-                                        ),
-                                        const SizedBox(
-                                          width: 5,
-                                        ),
-                                        Text(
-                                          'Kids Park',
-                                          style: secondaryTextStyle.copyWith(
-                                              fontSize: 16,
-                                              fontWeight: regular),
-                                        ),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        Container(
-                                          height: 16,
-                                          width: 16,
-                                          decoration: const BoxDecoration(
-                                            image: DecorationImage(
-                                              image: AssetImage(
-                                                  'assets/icons/ic_checklist.png'),
-                                            ),
-                                          ),
-                                        ),
-                                        const SizedBox(
-                                          width: 5,
-                                        ),
-                                        Text(
-                                          'Kids Park',
-                                          style: secondaryTextStyle.copyWith(
-                                              fontSize: 16,
-                                              fontWeight: regular),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              Expanded(
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Container(
-                                          height: 16,
-                                          width: 16,
-                                          decoration: const BoxDecoration(
-                                            image: DecorationImage(
-                                              image: AssetImage(
-                                                  'assets/icons/ic_checklist.png'),
-                                            ),
-                                          ),
-                                        ),
-                                        const SizedBox(
-                                          width: 5,
-                                        ),
-                                        Text(
-                                          'Kids Park',
-                                          style: secondaryTextStyle.copyWith(
-                                              fontSize: 16,
-                                              fontWeight: regular),
-                                        ),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        Container(
-                                          height: 16,
-                                          width: 16,
-                                          decoration: const BoxDecoration(
-                                            image: DecorationImage(
-                                              image: AssetImage(
-                                                  'assets/icons/ic_checklist.png'),
-                                            ),
-                                          ),
-                                        ),
-                                        const SizedBox(
-                                          width: 5,
-                                        ),
-                                        Text(
-                                          'Kids Park',
-                                          style: secondaryTextStyle.copyWith(
-                                              fontSize: 16,
-                                              fontWeight: regular),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    )
-                  ],
-                ),
+                  ),
+            
+                  // NOTE : CHECKLIST
+                  Container(
+                    height: 86,
+                    margin: const EdgeInsets.only(top: 20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Interest',
+                          style: secondaryTextStyle.copyWith(
+                              fontSize: 16, fontWeight: semiBold),
+                        ),
+                        const SizedBox(height: 7),
+                        const ChecklistItem(),
+                        const ChecklistItem()
+                      ],
+                    ),
+                  )
+                ],
               ),
             ),
             Container(
@@ -363,31 +206,9 @@ class DetailPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Container(
-                    height: 55,
-                    width: 170,
-                    child: Material(
-                      color: kPrimaryColor,
-                      borderRadius: BorderRadius.circular(defaultRadius),
-                      elevation: 5,
-                      child: InkWell(
-                        splashColor: kRedColor,
-                        onTap: () {
-                          print('Tombol ditekan!');
-                        },
-                        borderRadius: BorderRadius.circular(
-                            defaultRadius), // Bentuk sudut yang sesuai dengan Material di atas
-                        child: Align(
-                          alignment: Alignment.center,
-                          child: Text(
-                            'Book Now',
-                            style: whiteTextStyle.copyWith(
-                          fontWeight: light, fontSize: 18)
-                          ),
-                        ),
-                      ),
-                    ),
-                  )
+                  CustomButton(title: 'Book Now', width: 170, onPressed: () {
+                   Navigator.push(context, MaterialPageRoute(builder: (context) => const ChooseSeatPage(),));
+                  },)
                 ],
               ),
             )
@@ -398,12 +219,10 @@ class DetailPage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: kBackgroundColor,
-      body: ListView(
-        children: [
-          Stack(
-            children: [backgroundImage(), shadowImage(), content()],
-          ),
-        ],
+      body: SingleChildScrollView(
+        child: Stack(
+          children: [backgroundImage(), shadowImage(), content()],
+        ),
       ),
     );
   }

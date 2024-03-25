@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_travel/shared/theme.dart';
-import 'package:flutter_travel/ui/widgets/custom_button.dart';
 
 class BonusPage extends StatelessWidget {
   const BonusPage({super.key});
