@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_travel/shared/theme.dart';
+import 'package:flutter_travel/ui/pages/checkout_page.dart';
 import 'package:flutter_travel/ui/widgets/custom_button.dart';
 import 'package:flutter_travel/ui/widgets/custom_seat_page.dart';
 
@@ -112,7 +113,7 @@ class _ChooseSeatPageState extends State<ChooseSeatPage> {
                 const CustomSeat(status: 2),
                 const CustomSeat(status: 1),
                 Container(
-                  padding: EdgeInsets.only(bottom: 15),
+                  padding: const EdgeInsets.only(bottom: 15),
                   width: 48,
                   height: 48,
                   child: Center(
@@ -132,7 +133,7 @@ class _ChooseSeatPageState extends State<ChooseSeatPage> {
                 const CustomSeat(status: 2),
                 const CustomSeat(status: 1),
                 Container(
-                  padding: EdgeInsets.only(bottom: 15),
+                  padding: const EdgeInsets.only(bottom: 15),
                   width: 48,
                   height: 48,
                   child: Center(
@@ -152,7 +153,7 @@ class _ChooseSeatPageState extends State<ChooseSeatPage> {
                 const CustomSeat(status: 2),
                 const CustomSeat(status: 1),
                 Container(
-                  padding: EdgeInsets.only(bottom: 15),
+                  padding: const EdgeInsets.only(bottom: 15),
                   width: 48,
                   height: 48,
                   child: Center(
@@ -172,7 +173,7 @@ class _ChooseSeatPageState extends State<ChooseSeatPage> {
                 const CustomSeat(status: 2),
                 const CustomSeat(status: 1),
                 Container(
-                  padding: EdgeInsets.only(bottom: 15),
+                  padding: const EdgeInsets.only(bottom: 15),
                   width: 48,
                   height: 48,
                   child: Center(
@@ -192,7 +193,7 @@ class _ChooseSeatPageState extends State<ChooseSeatPage> {
                 const CustomSeat(status: 2),
                 const CustomSeat(status: 1),
                 Container(
-                  padding: EdgeInsets.only(bottom: 15),
+                  padding: const EdgeInsets.only(bottom: 15),
                   width: 48,
                   height: 48,
                   child: Center(
@@ -209,7 +210,7 @@ class _ChooseSeatPageState extends State<ChooseSeatPage> {
 
             // NOTE :
             Container(
-              margin: EdgeInsets.only(top: 30),
+              margin: const EdgeInsets.only(top: 30),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -225,7 +226,7 @@ class _ChooseSeatPageState extends State<ChooseSeatPage> {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(top: 30),
+              margin: const EdgeInsets.only(top: 30),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -247,10 +248,17 @@ class _ChooseSeatPageState extends State<ChooseSeatPage> {
 
     Widget checkoutButton() {
       return Container(
-        margin: EdgeInsets.symmetric(vertical: 30),
+        margin: const EdgeInsets.symmetric(vertical: 30),
         child: CustomButton(
           title: "Continue to Checkout",
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const CheckOutPage(),
+              ),
+            );
+          },
         ),
       );
     }
