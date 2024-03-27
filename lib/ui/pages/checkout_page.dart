@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_travel/shared/theme.dart';
+import 'package:flutter_travel/ui/pages/success_page.dart';
 import 'package:flutter_travel/ui/widgets/booking_detail_item.dart';
 import 'package:flutter_travel/ui/widgets/custom_button.dart';
 
@@ -200,35 +201,55 @@ class _CheckOutPageState extends State<CheckOutPage> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  margin: EdgeInsets.only(top: 16),
+                  margin: const EdgeInsets.only(top: 16, right: 16),
                   width: 100,
                   height: 70,
                   decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/icons/wall.png'),
-                    ),
+                    color: kPrimaryColor,
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.grey.withOpacity(0.2), // Warna bayangan
+                        color: kPrimaryColor.withOpacity(0.5), // Warna bayangan
                         spreadRadius: 1, // Menyebar radius bayangan
-                        blurRadius: 9, // Radius blur bayangan
-                        offset: Offset(0,
-                            1), // Posisi offset bayangan, [horizontal, vertical]
+                        blurRadius: 80, // Radius blur bayangan
+                        offset: const Offset(0,
+                            10), // Posisi offset bayangan, [horizontal, vertical]
                       ),
+                    ],
+                    borderRadius: BorderRadius.circular(defaultRadius),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.only(right: 6),
+                        width: 24,
+                        height: 24,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage('assets/icons/ic_logo.png'),
+                          ),
+                        ),
+                      ),
+                      Text('Pay',
+                          style: whiteTextStyle.copyWith(
+                              fontWeight: semiBold, fontSize: 18))
                     ],
                   ),
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('IDR. 40.000.000',
-                        style: secondaryTextStyle.copyWith(
-                            fontSize: 18, fontWeight: bold)),
-                    Text('Current Balance',
-                        style: greyTextStyle.copyWith(
-                            fontSize: 12, fontWeight: light))
-                  ],
-                )
+                Container(
+                  margin: const EdgeInsets.only(top: 20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('IDR. 40.000.000',
+                          style: secondaryTextStyle.copyWith(
+                              fontSize: 18, fontWeight: bold)),
+                      Text('Current Balance',
+                          style: greyTextStyle.copyWith(
+                              fontSize: 12, fontWeight: light))
+                    ],
+                  ),
+                ),
               ],
             )
           ],
@@ -238,10 +259,30 @@ class _CheckOutPageState extends State<CheckOutPage> {
 
     Widget payNowButton() {
       return Container(
-        margin: EdgeInsets.only(bottom: 84),
+        margin: const EdgeInsets.only(bottom: 30),
         child: CustomButton(
           title: 'Pay Now',
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => SuccessPage(),
+              ),
+            );
+          },
+        ),
+      );
+    }
+
+    Widget tncButton() {
+      return TextButton(
+        onPressed: () {},
+        child: Text(
+          'Term and Condition',
+          style: greyTextStyle.copyWith(
+              fontSize: 14,
+              fontWeight: light,
+              decoration: TextDecoration.underline),
         ),
       );
     }
@@ -254,7 +295,8 @@ class _CheckOutPageState extends State<CheckOutPage> {
           route(),
           detailTransaction(),
           paymentsDetail(),
-          payNowButton()
+          payNowButton(),
+          tncButton()
         ],
       ),
     );
